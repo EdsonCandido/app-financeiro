@@ -2,12 +2,13 @@
 
 namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
-use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
+use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\JWTAuthenticationFilter;
 
 class Filters extends BaseConfig
 {
@@ -19,10 +20,11 @@ class Filters extends BaseConfig
      */
     public $aliases = [
         'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
         'honeypot'      => Honeypot::class,
+        'toolbar'       => DebugToolbar::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'authFilter' => JWTAuthenticationFilter::class,
     ];
 
     /**
@@ -38,9 +40,10 @@ class Filters extends BaseConfig
             // 'invalidchars',
         ],
         'after' => [
-            'toolbar',
+            // 'toolbar',
             // 'honeypot',
             // 'secureheaders',
+            
         ],
     ];
 
@@ -68,5 +71,9 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'authFilter' => [
+            'before' => ['client/*','client'],
+        ]
+    ];
 }
