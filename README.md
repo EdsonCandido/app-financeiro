@@ -5,11 +5,11 @@
 ## Requirements
 
  - [x] Login in user.
- - [] Add new payment.
- - [] Remove one payment.
- - [] Add new bills to receive.
- - [] Remove one bills to receive.
- - [] Complete balance month.
+ - [ ] Add new payment.
+ - [ ] Remove one payment.
+ - [ ] Add new bills to receive.
+ - [ ] Remove one bills to receive.
+ - [ ] Complete balance month.
 
 ## Getting Started
 
